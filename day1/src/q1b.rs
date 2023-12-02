@@ -9,9 +9,9 @@ const REV_DIGITS: [&str; 9] = [
 fn get_calibration(line: &str) -> i32 {
     let n: usize = line.len();
     let c: Vec<char> = line.chars().collect();
-    let reversed_line = line.chars().rev().collect::<String>();
 
     let mut frwd: usize = 0;
+    let mut bckwd: usize = n - 1;
 
     let mut fd: Option<i32> = None;
     let mut bd: Option<i32> = None;
@@ -24,8 +24,7 @@ fn get_calibration(line: &str) -> i32 {
         frwd += 1;
     }
 
-    let mut bckwd: usize = n - 1;
-    while bckwd >= frwd {
+    while frwd <= bckwd {
         if c[bckwd].is_digit(10) {
             bd = Some(c[bckwd].to_digit(10).unwrap() as i32);
             break;
@@ -34,6 +33,7 @@ fn get_calibration(line: &str) -> i32 {
     }
 
     bckwd = n - bckwd;
+    let reversed_line = line.chars().rev().collect::<String>();
 
     for i in 0..9 {
         let frwd_pos: usize = line.find(DIGITS[i]).unwrap_or(frwd);
@@ -59,4 +59,26 @@ pub fn solve(input: &str) -> i32 {
     }
 
     total_calibration
+}
+
+#[cfg(test)]
+mod test {
+    use indoc::indoc;
+
+    use super::solve;
+
+    const CASE_B: &str = indoc! {"
+        two1nine
+        eightwothree
+        abcone2threexyz
+        xtwone3four
+        4nineeightseven2
+        zoneight234
+        7pqrstsixteen
+    "};
+
+    #[test]
+    fn part_b() {
+        assert_eq!(solve(CASE_B), 281.into());
+    }
 }
