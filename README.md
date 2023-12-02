@@ -12,16 +12,11 @@ Each directory in this repository represents a day of the challenge, containing 
 
 ```
 .
-├── day1
+├── dayN
 │   ├── src
-│   │   ├── main.rs
-│   │   ├── q1a.rs
-│   │   └── q1b.rs
-│   └── tests
-│       ├── 1a.txt
-│       ├── 1a_.txt
-│       ├── 1b.txt
-│       └── 1b_.txt
+│   │   └── lib.rs
+│   ├── Cargo.lock
+│   └── Cargo.toml
 └── README.md
 ```
 
@@ -33,12 +28,13 @@ Each directory in this repository represents a day of the challenge, containing 
 ## Highlights
 
 -   **Day 1:** First part was easy but figuring out the second part was bit tricky.
+-   **Day 2:** Problems were trivial. But Rust syntax took alot of time for me to figure out.
 
 ## How to Run the Solutions
 
 ```bash
 cd dayN
-cargo run --release
+cargo test
 ```
 
 ## Contributing
