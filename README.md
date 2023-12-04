@@ -2,10 +2,6 @@
 
 Welcome to my repository where I share my solutions for the Advent of Code 2023 challenges. Advent of Code is an annual set of Christmas-themed programming puzzles that cover a variety of skill sets and challenge types.
 
-## About Me
-
-I am Meesum Qazalbash, a passionate coder and problem-solver. I enjoy taking on new challenges and continuously learning. Participating in Advent of Code is part of my journey to enhance my programming skills and have some fun along the way!
-
 ## Repository Structure
 
 Each directory in this repository represents a day of the challenge, containing my solutions and notes for that day's puzzles.
@@ -28,7 +24,9 @@ Each directory in this repository represents a day of the challenge, containing 
 ## Highlights
 
 -   **Day 1:** First part was easy but figuring out the second part was bit tricky.
--   **Day 2:** Problems were trivial. But Rust syntax took alot of time for me to figure out.
+-   **Day 2:** Problems were trivial. But Rust syntax took a lot of time for me to figure out.
+-   **Day 3:** String parsing is a difficult task in Rust. I have left this part for some day when I have more time.
+-   **Day 4:** Easy peasy, lemon squeezy.
 
 ## How to Run the Solutions
 
