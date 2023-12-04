@@ -4,9 +4,8 @@ pub mod part1 {
         let c: Vec<char> = line.chars().collect();
 
         let mut frwd: usize = 0;
-
         while frwd < n {
-            if c[frwd].is_digit(10) {
+            if c[frwd].is_ascii_digit() {
                 break;
             }
             frwd += 1;
@@ -14,7 +13,7 @@ pub mod part1 {
 
         let mut bckwd: usize = n - 1;
         while frwd <= bckwd {
-            if c[bckwd].is_digit(10) {
+            if c[bckwd].is_ascii_digit() {
                 break;
             }
             bckwd -= 1;
@@ -24,9 +23,9 @@ pub mod part1 {
 
     pub fn solve(input: &str) -> i32 {
         let mut total_calibration: i32 = 0;
-        for line in input.lines() {
-            total_calibration += get_calibration(line);
-        }
+        input
+            .lines()
+            .for_each(|line: &str| total_calibration += get_calibration(line));
         total_calibration
     }
 }
@@ -51,7 +50,7 @@ pub mod part2 {
         let mut bd: Option<i32> = None;
 
         while frwd < n {
-            if c[frwd].is_digit(10) {
+            if c[frwd].is_ascii_digit() {
                 fd = Some(c[frwd].to_digit(10).unwrap() as i32);
                 break;
             }
@@ -59,7 +58,7 @@ pub mod part2 {
         }
 
         while frwd <= bckwd {
-            if c[bckwd].is_digit(10) {
+            if c[bckwd].is_ascii_digit() {
                 bd = Some(c[bckwd].to_digit(10).unwrap() as i32);
                 break;
             }
@@ -88,9 +87,9 @@ pub mod part2 {
     pub fn solve(input: &str) -> i32 {
         let mut total_calibration: i32 = 0;
 
-        for s in input.lines() {
-            total_calibration += get_calibration(s);
-        }
+        input
+            .lines()
+            .for_each(|line: &str| total_calibration += get_calibration(line));
 
         total_calibration
     }

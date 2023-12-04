@@ -11,8 +11,7 @@ pub mod part1 {
             let id: i32 = game
                 .next()
                 .unwrap()
-                .trim()
-                .split(" ")
+                .split_whitespace()
                 .nth(1)
                 .unwrap()
                 .parse()
@@ -25,7 +24,7 @@ pub mod part1 {
             for part in parts {
                 let colors: std::str::Split<'_, &str> = part.trim().split(",");
                 for color in colors {
-                    let mut color_explode: std::str::Split<'_, &str> = color.trim().split(" ");
+                    let mut color_explode: std::str::SplitWhitespace<'_> = color.split_whitespace();
                     let count: i32 = color_explode.next().unwrap().parse::<i32>().unwrap();
                     let color: &str = color_explode.next().unwrap();
                     if (color == "red" && count > MAX_RED)
@@ -63,7 +62,7 @@ pub mod part2 {
             for part in parts {
                 let colors: std::str::Split<'_, &str> = part.trim().split(",");
                 for color in colors {
-                    let mut color_explode: std::str::Split<'_, &str> = color.trim().split(" ");
+                    let mut color_explode: std::str::SplitWhitespace<'_> = color.split_whitespace();
                     let count: i32 = color_explode.next().unwrap().parse::<i32>().unwrap();
                     let color: &str = color_explode.next().unwrap();
                     if color == "red" {

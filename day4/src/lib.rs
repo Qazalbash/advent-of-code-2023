@@ -3,14 +3,17 @@ fn get_lists(line: &str) -> (Vec<i32>, Vec<i32>) {
         .trim()
         .split('|')
         .collect::<Vec<&str>>();
+
     let winning_list: Vec<i32> = nums_list[0]
         .split_whitespace()
         .map(|x| x.parse::<i32>().unwrap())
         .collect::<Vec<i32>>();
+
     let holding_list: Vec<i32> = nums_list[1]
         .split_whitespace()
         .map(|x| x.parse::<i32>().unwrap())
         .collect::<Vec<i32>>();
+
     (winning_list, holding_list)
 }
 
@@ -21,11 +24,11 @@ pub mod part1 {
         for line in input.lines() {
             let (winning_list, holding_list): (Vec<i32>, Vec<i32>) = get_lists(line);
             let mut count: usize = 0;
-            for num in winning_list {
-                if holding_list.contains(&num) {
+            winning_list.iter().for_each(|x: &i32| {
+                if holding_list.contains(x) {
                     count += 1;
                 }
-            }
+            });
             if count > 0 {
                 total += 1 << (count - 1);
             }
@@ -42,13 +45,16 @@ pub mod part2 {
         for (i, line) in input.lines().enumerate() {
             let (winning_list, holding_list) = get_lists(line);
             let mut count: usize = 0;
-            for num in winning_list {
-                if holding_list.contains(&num) {
+            winning_list.iter().for_each(|x: &i32| {
+                if holding_list.contains(x) {
                     count += 1;
                 }
-            }
+            });
             if count > 0 {
-                let extra: usize = if count < n - i { 1 } else { (n - i) / count };
+                let extra: usize = match count < n - i {
+                    true => 1,
+                    false => (n - i) / count,
+                };
 
                 for j in (i + 1)..(std::cmp::min(i + count + 1, n)) {
                     instances[j] += instances[i] * extra;
