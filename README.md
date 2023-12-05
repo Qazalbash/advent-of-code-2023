@@ -25,7 +25,7 @@ Each directory in this repository represents a day of the challenge, containing 
 
 -   **Day 1:** First part was easy but figuring out the second part was bit tricky.
 -   **Day 2:** Problems were trivial. But Rust syntax took a lot of time for me to figure out.
--   **Day 3:** String parsing is a difficult task in Rust. I have left this part for some day when I have more time.
+-   **Day 3:** String parsing is a difficult task in Rust. I have left this part for some day when I have more time. I had to watch a tutorial after some day. It was a good learning experience.
 -   **Day 4:** Easy peasy, lemon squeezy.
 
 ## How to Run the Solutions
