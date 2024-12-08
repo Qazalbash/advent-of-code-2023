@@ -7,12 +7,13 @@ Welcome to my repository where I share my solutions for the Advent of Code chall
 Each directory in this repository represents a day of the challenge, containing my solutions and notes for that day's puzzles.
 
 ```bash
-.
-├── dayN
-│   ├── src
-│   │   └── lib.rs
-│   ├── Cargo.lock
-│   └── Cargo.toml
+aoc-sols
+├── year
+│   └── dayN
+│       ├── src
+│       │   └── lib.rs
+│       ├── Cargo.lock
+│       └── Cargo.toml
 └── README.md
 ```
 
